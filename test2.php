@@ -12,4 +12,5 @@ $arr=['ip'=>['Mon'=>0,'Tue'=>0,'Wed'=>2,'Thu'=>0,'Fri'=>0,'Sat'=>2]];
 ?>
 <html>
 <a href="test3.php">click</a>
+<p>sample</p>
 </html>
