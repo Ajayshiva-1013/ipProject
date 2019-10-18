@@ -19,7 +19,7 @@ $name=['Aakash','Aparna','Abinash Raj','Abinaya','Abirami','Adhavan','Aditya','A
               }
               function setColor(a){
                   var p=document.getElementById(a);
-                  p.style.backgroundColor="#000";
+                  p.style.backgroundColor="##12E603";
                   $.ajax({
                   url:'teacher_server.php',
                   method:'POST',

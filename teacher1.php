@@ -3,6 +3,7 @@ session_start();
 //Variables to store the result
 $id_no=array();
 $attended=array();
+$name=array();
 //
 $servername = "localhost";
 $username = "ajay";
@@ -22,6 +23,17 @@ if ($result->num_rows > 0) {
 else{
   echo "NO VALID ENTRIES FOUND";
 }
+$q="SELECT namee from stu_login";
+$result=$conn->query($q);
+if($result->num_rows>0){
+  while($row=$result->fetch_assoc()){
+    array_push($name,$row['namee']);
+  }
+}
+else{
+  echo "NO VALID NAMES FOUND";
+}
+
 ?>
 
 <html>
@@ -64,12 +76,14 @@ else{
                 <table class="table table-striped border-success mt-4" style="background-color: rgb(107, 175, 252)">
                       <tr>
                         <th >ID</th>
+                        <th >Name</th>
                         <th > Periods Attended</th>
                       </tr>
                     <tbody>
                         <tr>
                         <?php for($i=0; $i<sizeof($id_no); $i++){ ?>
                             <td><?php echo $id_no[$i]; ?></td>
+                            <td><?php echo $name[$i]; ?></td>
                             <td><?php echo $attended[$i];?></td>
                         </tr>
                         <?php } ?>
