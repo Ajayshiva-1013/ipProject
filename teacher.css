@@ -1,0 +1,30 @@
+.logo{
+    height: 80px;
+}
+body{
+    background-color: #F5E6CC;
+}
+
+.right{
+
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: right;
+        height: 3.5rem;
+        width: 100%;
+      
+}
+.nav-c{
+    color:black;
+    padding-left: 10px;
+    padding-right:10px;
+}
+a:hover{
+    text-decoration: none;
+}
+.nav-r{
+    color:black;
+    align-content: flex-end;
+    padding-left: 5px;
+}

@@ -1,0 +1,14 @@
+ 
+  .bg-linear-new {
+    background-color: white;
+    box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+
+}
+  
+  .rounded {
+    border-radius: 1.25rem !important;
+    margin-right:2px;
+  }
+  .modal-content{
+    margin-top:200px;
+  }

@@ -1,0 +1,108 @@
+
+<html>
+    <head>
+        
+      
+      <link rel = "stylesheet" type = "text/css" href = "login.css" />
+      <link rel = "stylesheet" type = "text/css" href = "styles.css" />
+      
+        <script src="jquery.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <style>
+      a{
+        color:black;
+      }
+    </style>
+    <script>
+      $(document).ready(function(){
+        $.ajax({
+          url:'login.php',
+          success(data){}
+        });
+        $('#login').click(function(){
+          var name=$('#email').val();
+          var pass=$('#password').val();
+          if($('input[name=check]').is(':checked')){
+            var check="true";
+          }
+          else{
+            var check="false";
+          }
+          console.log(check);
+          // alert(check);
+          $.ajax({
+            url:'login.php',
+            method:'POST',
+            data:{email: name,password: pass,check: check},
+            success:function(data){
+              if(data=='wrong'){
+                alert("Entered valid credentials, try again");
+              }
+              else{
+                if(check=='true'){
+                  window.location="teacher.php"; 
+                  //go to teacher
+                }
+                else{
+                  window.location="student.php"; 
+                  //go to student
+                }
+              }},
+              error: function(jqXHR, textStatus, errorThrown) {
+              console.log(textStatus, errorThrown);
+        }
+          });
+        });
+      });
+    </script>
+    </head>
+    <body >
+      <nav class="navbar sticky-top navbar- bg-light navbar-expand-lg">
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <li class="navbar-brand" href="#">ATTENDENCE MODULE</li>
+     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+    </ul>
+    <ul class="navbar-nav">
+      <a class="navbar-item mr-3" href="#">Home</a>
+      <a href="#" data-toggle="modal" data-target="#bannerformmodal" class="navbar-item">Sign In</a>
+    </ul>
+  </div>
+</nav>
+        <div class="container-fluid h-100" >
+            <div class="row h-100" >
+              <div class="col-lg-3 col-md-5 col-sm-5 col-10 mx-auto my-auto">
+                <div class="modal fade bannerformmodal " tabindex="-1" role="dialog" aria-labelledby="bannerformmodal" aria-hidden="true" id="bannerformmodal">
+                     <div class="modal-dialog modal-sm">
+                     <div class="modal-content">
+                        <div class="modal-header">
+                          <h4 class="modal-title" id="myModalLabel">SIGN IN</h4>
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        </div>
+                        <div class="bg-linear-new p-4 rounded">
+                          <form >
+                            <div class="form-group">
+                              <label for="email">Roll No&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-danger">*</span></label>
+                              <input type="text" name="email" id="email" >
+                            </div>
+                            <div class="form-group">
+                              <label for="password">Password <span class="text-danger">*</span></label>
+                              <input type="password" id="password" >
+                              </div>
+                            <div class="form-group container">
+                              <input name="check" type="checkbox" id="check"  aria-label="Checkbox for following text input"><span class="checkmark"></span>
+                              <span style="font-size:14px;">Teacher login</span>
+                            </div>
+                            <button class="btn btn-primary py-1"  id="login">Submit</button>
+                          </form>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </body>
+</html>

@@ -1,0 +1,24 @@
+<html>
+    <head>
+            <script src="jquery.js"></script>
+            <script>
+            function a(b){
+                $.ajax({
+                    url:'testt.php',
+                    method:'GET',
+                    data:{val:b},
+                    success(data){
+                        console.log('success',data);
+                    },
+                    error(data){
+                        console.log('error',data);
+                    }
+
+                })
+            }
+            </script>
+    </head>
+    <body>
+        <input type="button" value="Hi" onclick="a('passed')">
+    </body>
+</html>
