@@ -1,6 +1,6 @@
 <?php
 #get these values using ajax, i have used static values just to check whether the query is working.
-$id=11;
+$name='Aadhavan';
  
   session_start();
   $servername = "localhost";
@@ -11,7 +11,8 @@ $id=11;
   if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
   }
-$q="DELETE FROM stu_login where id = ".$id;
+$q="DELETE FROM stu_login where namee = '$name' ";
+echo $q;
 if ($conn->query($q) === TRUE) {
     echo "Record deleted successfully";
 } else {

@@ -4,7 +4,7 @@ $id=11;
 $pass="pass";
 $name="Aishwarya R";
  
-  session_start();
+  
   $servername = "localhost";
   $username = "ajay";
   $password = "";
