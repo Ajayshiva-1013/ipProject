@@ -25,7 +25,7 @@ else{
 }
 $q="SELECT namee from stu_login";
 $result=$conn->query($q);
-if($result->num_rows>0){
+if($result  ->num_rows>0){
   while($row=$result->fetch_assoc()){
     array_push($name,$row['namee']);
   }
