@@ -13,7 +13,7 @@ $name="Aishwarya R";
   if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
   }
-$q="INSERT INTO stu_login (id , pwd , namee ) VALUES ($id,'$pass','$name')";
+$q="INSERT INTO stu_login (pwd , namee ) VALUES ('$pass','$name')";
 if ($conn->query($q) === TRUE) {
     echo "New record created successfully";
 } else {
