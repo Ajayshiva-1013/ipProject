@@ -1,7 +1,30 @@
 <?php
 session_start();
-$l=[1,2,3,4,5,6,7,8,9,10];
-$name=['Aakash','Aparna','Abinash Raj','Abinaya','Abirami','Adhavan','Aditya','Aditya Ramesh','Aishwarya D','Aishwarya P S'];
+#$l=[1,2,3,4,5,6,7,8,9,10];
+#$name=['Aakash','Aparna','Abinash Raj','Abinaya','Abirami','Adhavan','Aditya','Aditya Ramesh','Aishwarya D','Aishwarya P S'];
+$id_no=array();
+$name=array();
+
+$servername = "localhost";
+$username = "ajay";
+$password = "";
+$dbname = "student attendance";
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+$q="SELECT namee,id from stu_login";
+$result=$conn->query($q);
+if($result  ->num_rows>0){
+  while($row=$result->fetch_assoc()){
+    array_push($name,$row['namee']);
+    array_push($id_no,$row['id']);
+  }
+}
+else{
+  echo "NO VALID NAMES FOUND";
+}
 ?>
 <html>
     <head>
@@ -19,7 +42,7 @@ $name=['Aakash','Aparna','Abinash Raj','Abinaya','Abirami','Adhavan','Aditya','A
               }
               function setColor(a){
                   var p=document.getElementById(a);
-                  p.style.backgroundColor="##12E603";
+                  p.style.backgroundColor="#12E603";
                   $.ajax({
                   url:'teacher_server.php',
                   method:'POST',
@@ -83,12 +106,12 @@ $name=['Aakash','Aparna','Abinash Raj','Abinaya','Abirami','Adhavan','Aditya','A
                       </tr>
                     </thead>
                     <tbody>
-                    <?php for ($i = 0; $i < sizeof($l);$i++){ ?>
+                    <?php for ($i = 0; $i < sizeof($id_no);$i++){ ?>
                         <tr>
-                          <th scope="row"><?php echo $l[$i]; ?></th>
+                          <th scope="row"><?php echo $id_no[$i]; ?></th>
                           <td><?php echo $name[$i];?></td>
-                          <td ><button type="button" class="btn" name="<?php echo $l[$i] ?>" id= <?php echo $l[$i] ?> onClick="setColor(<?php echo $l[$i] ?>)" style="background-color:#f8f9fa"><i class="far fa-check-circle"></i></button></td>
-                          <td><button type="button" class="btn" name="<?php echo $l[$i] ?>s"  onClick="resetColor(<?php echo $l[$i] ?>)" style="background-color:#f8f9fa"><i class="fas fa-redo-alt"></i></button></td>
+                          <td ><button type="button" class="btn" name="<?php echo $id_no[$i] ?>" id= <?php echo $id_no[$i] ?> onClick="setColor(<?php echo $id_no[$i] ?>)" style="background-color:#f8f9fa"><i class="far fa-check-circle"></i></button></td>
+                          <td><button type="button" class="btn" name="<?php echo $id_no[$i] ?>s"  onClick="resetColor(<?php echo $id_no[$i] ?>)" style="background-color:#f8f9fa"><i class="fas fa-redo-alt"></i></button></td>
                     <?php };?>
                         </tr>
                       </tbody>

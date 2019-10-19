@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 if($_SERVER["REQUEST_METHOD"]=="POST"){
   $a=validate();
   if($a==-1){
@@ -44,7 +44,7 @@ $result = $conn->query($q);
 if ($result->num_rows > 0) {
   // output data of each rows
   while($row = $result->fetch_assoc()) {
-    session_start();
+
   
       $_SESSION['id']=$row['id'];
       $_SESSION['name']=$row['namee'];
