@@ -13,21 +13,24 @@
         }
       </style>
       <script>
-         function show1(){
-             console.log('called');
-             $('.result').show();
-            }
             function reset(){
-                $('.result').hide();
                 $('#u_name').val("");
             }
             function delete_stu(){
                 //Need To write ajax function here
-            }
-          $(document).ready(function(){
-              $('.result').hide();
-            
-        })
+                var name= document.getElementById("u_name").value;
+                $.ajax({
+                    url:'deletestudent.php',
+                    method:'POST',
+                    data:{name:name},
+                    success:function(data){
+                        alert(data);
+                      },
+                       error:function(data){
+                           alert('an error occured during the process, contact the system admin');
+                       }
+                });
+                 }
       </script>
 </head>
 <body style="background-image: none;">
@@ -73,15 +76,11 @@
                               </div>  
                               <br>
                             <div style="display:flex;align-items: flex-end;justify-content: flex-end;">
-                                <button type="button" class=" btn btn-success ml-2 rounded-0" onClick="show1()">Find Student</button>
+                                <button type="button" class=" btn btn-success ml-2 rounded-0" onClick="delete_stu()">Delete student</button>
                                 <button type="button" class="btn btn-warning ml-2 rounded-0" onClick="reset()">Reset</button>
                             </div>  
                         </div>
-                        <div class="result">
-                            <p>Name://code to be written</p>
-                            <p>Roll No://code to be written</p>
-                            <button type="button" class="btn btn-danger" onClick()="delete_stu()">Delete?</button>
-                        </div>
+                      </div>
                     </div>
         </div>
 </body>

@@ -16,7 +16,6 @@
                 function add(){
                     var name=document.getElementById("u_name").value;
                     var pass=document.getElementById("passw").value;
-                    var idno=document.getElementById("idn").value;
                   console.log(name,pass,idno);
                     $.ajax({
                     url:'addstudent.php',
@@ -86,17 +85,13 @@
                                 <input type="text" class="form-control w-50 mt-0" placeholder="Enter Password" id="passw" aria-label="name" >
                               </div>  
                               <br>
-                              <div class="row ml-1">
-                                <span class=" mr-4 mt-1">Roll No</span>
-                                <input type="text" class="form-control w-50 mt-0 ml-3" placeholder="Enter Roll No" id="idn" aria-label="name" >
-                              </div>  
-                              <br>
                             <div style="display:flex;align-items: flex-end;justify-content: flex-end;">
                                 <button type="button" class=" btn btn-success ml-2 rounded-0" onClick="add()">Add Student</button>
                                 <button type="button" class="btn btn-warning ml-2 rounded-0" onClick="reset()">Reset</button>
                             </div>  
                         </div>
                       </div>
-        </div>
+                </div>
+      </div>
 </body>
 </html>

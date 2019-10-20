@@ -1,7 +1,6 @@
 <?php
 
 #get these values using ajax, i have used static values just to check whether the query is working.
-$id=$_POST['id'];
 $pass=$_POST['pass'];
 $name=$_POST['name'];
 echo '<script>alert("worling");</script>';
@@ -13,9 +12,9 @@ echo '<script>alert("worling");</script>';
   if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
   }
-$q="INSERT INTO stu_login (id, pwd , namee ) VALUES ('$id','$pass','$name')";
+$q="INSERT INTO stu_login (pwd , namee ) VALUES ('$pass','$name')";
 if ($conn->query($q) === TRUE) {
-    echo "New record created successfully";
+    echo "New student addded  successfully";
 } else {
     echo "Error: " . $q . "<br>" . $conn->error;
 }
