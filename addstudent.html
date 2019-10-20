@@ -13,22 +13,23 @@
         }
       </style>
       <script>
-                // function add(){
-                //     var name=document.getElementById(u_name);
-                //     var pass=document.getElementById(passw);
-                //     $.ajax({
-                //     url://file to be inserted
-                //     ,
-                //     method:'POST',
-                //     data:{#var1:u_name,#var_2:passw},
-                //     success:function(data){
-                //         alert('The student has been successfully added');
-                //       },
-                //        error:function(data){
-                //            alert('an error occured during the process, contact the system admin');
-                //        }
-                //});
-                // }
+                function add(){
+                    var name=document.getElementById("u_name").value;
+                    var pass=document.getElementById("passw").value;
+                    var idno=document.getElementById("idn").value;
+                  console.log(name,pass,idno);
+                    $.ajax({
+                    url:'addstudent.php',
+                    method:'POST',
+                    data:{name:name,pass:pass,id:idno},
+                    success:function(data){
+                        alert(data);
+                      },
+                       error:function(data){
+                           alert('an error occured during the process, contact the system admin');
+                       }
+                });
+                 }
                 function reset(){
                     console.log("called");
                     $('#u_name').val("");
@@ -83,6 +84,11 @@
                               <div class="row ml-1">
                                 <span class=" mr-4 mt-1">Password</span>
                                 <input type="text" class="form-control w-50 mt-0" placeholder="Enter Password" id="passw" aria-label="name" >
+                              </div>  
+                              <br>
+                              <div class="row ml-1">
+                                <span class=" mr-4 mt-1">Roll No</span>
+                                <input type="text" class="form-control w-50 mt-0 ml-3" placeholder="Enter Roll No" id="idn" aria-label="name" >
                               </div>  
                               <br>
                             <div style="display:flex;align-items: flex-end;justify-content: flex-end;">
