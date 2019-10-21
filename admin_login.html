@@ -11,6 +11,27 @@
           color:black;
         }
       </style>
+      <script>
+        function reset(){
+          $('#u_name').val("");
+          $('#passw').val("");
+       }
+       function add(){
+        var name=document.getElementById("u_name").value;
+        var pass=document.getElementById("passw").value;
+        $.ajax({
+                    url:'adminlogin.php',
+                    method:'POST',
+                    data:{name:name,pass:pass},
+                    success:function(data){
+                        alert(data);
+                      },
+                    error:function(data){
+                        alert('an error occured during the process, contact the system admin');
+                       }
+                });
+       }  
+      </script>
 </head>
 <body style="background-image:url('admin.png') ; background-size:cover;background-repeat: no-repeat;">
         <div class="flex-containter ml-4">

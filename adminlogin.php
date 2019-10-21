@@ -1,7 +1,8 @@
 <?php
 #name,password are the two values from form,
-$name="admin";
-$pass="admin";
+session_start();
+$name=$_POST['name'];
+$pass=$_POST['pass'];
 $servername = "localhost";
 $username = "ajay";
 $password = "";
@@ -18,11 +19,8 @@ $result = $conn->query($q);
 
 if ( $result && $result->num_rows>0) {
   while($row = $result->fetch_assoc()) {
-
-  
       $_SESSION['id']=$row['id'];
       $_SESSION['name']=$row['namee'];
-
   }
   header('Location:admin_view.php');
 
