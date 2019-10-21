@@ -37,7 +37,7 @@ else{
                 method:'POST',
                 data:{button:a},
                 success:function(data){
-                    alert(data);
+                    console.log(data);
                   }});
               }
               function setColor(a){
@@ -79,7 +79,7 @@ else{
         </li>
           <li class="nav-item nav-c nav-r">
             <a class="nav-item nav-c"  href="./login1.html">
-              <i class="fas fa-sign-out-alt pl-1 pr-0 ml-5 pt-2"></i>
+              <i class="fas fa-sign-out-alt pl-1 pr-0 ml-3 pt-2"></i>
             </a>
           </li>
       </ul>

@@ -41,12 +41,12 @@
           <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
           <li class="navbar-brand" href="#">ATTENDENCE MODULE</li>
        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-item nav-c" href="#">Daily Attendence</a>
         </li>
         <li>
           <a class="nav-item nav-c" href="./teacher1.php">Student-wise Attendence</a>
-        </li>
+        </li> -->
       </ul>
       <ul class="navbar-nav">
         <li class="nav-item nav-c nav-r">
@@ -54,7 +54,7 @@
         </li>
           <li class="nav-item nav-c nav-r">
             <a class="nav-item nav-c"  href="./login1.html">
-              <i class="fas fa-sign-out-alt pl-1 pr-0 ml-5 pt-2"></i>
+              <i class="fas fa-sign-out-alt pl-1 pr-0 ml-3 pt-2"></i>
             </a>
           </li>
       </ul>

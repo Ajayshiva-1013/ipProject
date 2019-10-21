@@ -1,6 +1,6 @@
 <?php
 #get these values using ajax, i have used static values just to check whether the query is working.
-  $name='Aakash P';
+  $name=$_POST['name'];
   $servername = "localhost";
   $username = "ajay";
   $password = "";
@@ -29,7 +29,7 @@ if ($conn->query($q1) === TRUE) {
 }
 $q3="Delete from attendance where id = ".$val;
 if ($conn->query($q3) === TRUE) {
-  echo "Record deleted successfully";
+  //echo "Record deleted successfully";
 } else {
   echo "Error: " . $q3 . "<br>" . $conn->error;
 }

@@ -24,7 +24,12 @@
                     method:'POST',
                     data:{name:name,pass:pass},
                     success:function(data){
-                        alert(data);
+                        if(data=="accepted"){
+                          window.location="admin_view.php"
+                        }
+                        if(data=="failed"){
+                          alert("Please enter valid credentials");
+                        }
                       },
                     error:function(data){
                         alert('an error occured during the process, contact the system admin');

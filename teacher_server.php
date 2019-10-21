@@ -22,15 +22,15 @@ if ($result->num_rows > 0) {
         $val = $row[$v] ;
     }
   }
-echo "<script>console.log(".$_POST['button'].")</script>";
-echo "<script>console.log(".$_SESSION['id'].")</script>";
+//echo "<script>console.log(".$_POST['button'].")</script>";
+//echo "<script>console.log(".$_SESSION['id'].")</script>";
 #$val=$arr[$sub][$a];
 $buttons = array('1','2','3','4','5','6','7','8','9','10'); 
 foreach ($buttons as $button) { 
         if (($_POST['button'])==$button) {
           if (isset($_POST['button'])){  
           $q3="SELECT ld".$sub." from attendance where id=".$button;
-          echo '<script>console.log("EntryFound");</script>';
+          //echo '<script>console.log("EntryFound");</script>';
           $_SESSION[$button.'s']=True;
           //echo $_SESSION['$button'];
           $result2 = $conn->query($q3);

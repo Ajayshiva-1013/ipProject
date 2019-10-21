@@ -20,12 +20,14 @@ $result = $conn->query($q);
 if ( $result && $result->num_rows>0) {
   while($row = $result->fetch_assoc()) {
       $_SESSION['id']=$row['id'];
-      $_SESSION['name']=$row['namee'];
+     # $_SESSION['name']=$row['name'];
   }
-  header('Location:admin_view.php');
+  echo "accepted";
+  #header('Location:admin_view.php');
 
 }
-else{
-    header('Location:admin_login.html');
+else{   
+    echo "failed";
+    #header('Location:admin_login.html');
 } 
 
