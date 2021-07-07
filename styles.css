@@ -12,3 +12,6 @@
   .modal-content{
     margin-top:200px;
   }
+  .sharp{
+    border-radius: 0;
+  }

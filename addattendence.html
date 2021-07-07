@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<head>
+        <link rel = "stylesheet" type = "text/css" href = "login.css" />
+        <link rel = "stylesheet" type = "text/css" href = "styles.css" />
+        <link rel= "stylesheet" type="text/css" href= "admin.css" />
+        <script src="jquery.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/e00d939c1e.js" crossorigin="anonymous"></script>
+
+     <style>
+        a{
+          color:black;
+        }
+      </style>
+      <script>
+          function add_stu(){
+          var name=document.getElementById("u_name").value;  
+          var sub= document.getElementById("sub").value;
+          var period=document.getElementById("period").value;
+          console.log(name,sub,period);
+          $.ajax({
+                    url:'changeattendance.php',
+                    method:'POST',
+                    data:{id:name,sub:sub,period:period},
+                    success:function(data){
+                        alert(data);
+                      },
+                       error:function(data){
+                           alert(data);
+                       }
+                });
+          }
+          function reset(){
+              $('u_name').value("");
+              $('sub').value("");
+              $('period').value("");
+          }
+      </script>
+</head>
+
+<body style="background-image: none;">
+     <nav class="navbar sticky-top navbar- bg-light navbar-expand-lg">
+             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+             <li class="navbar-brand" href="#">ATTENDENCE MODULE</li>
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+             <li class="nav-item dropdown">
+             <a class="nav-link dropdown-toggle  nav-item" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             Student</a>
+             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                 <a class="dropdown-item" href="./addstudent.html">Add Student</a>
+                 <a class="dropdown-item" href="./deletestudent.html">Delete Student</a>
+             </div>    
+             <li class="pt-2">
+               <a class="nav-item nav-c" href="./addattendence.html">Add Attendence</a>
+             </li>
+            <li class="pt-2">
+             <a class="nav-item nav-c " href="./admin_view.php">Consolidated Attendence</a>
+           </li>
+         </ul>
+         <ul class="navbar-nav">
+           <li class="nav-item nav-c nav-r">
+             <p class="pt-1">Welcome Admin</p>                
+           </li>
+             <li class="nav-item nav-c nav-r">
+               <a class="nav-item nav-c"  href="./login1.html">
+                 <i class="fas fa-sign-out-alt pl-1 pr-0 ml-0 pt-2"></i>
+               </a>
+             </li>
+         </ul>
+       </div>
+     </nav>
+     <div class="flex-containter">
+        <div class="card mt-5" style="width: 50rem;align-self: center; margin-left: 380px;">
+                <div class="card-body ml-2">
+                  <h5 class="card-title">Add Attendence</h5><br>
+                  <div class="card-text">
+                      <div class="row ml-1">
+                        <span class=" mr-4 mt-1 mr-5">ID</span>
+                        <input type="text" class="form-control w-50 mt-0 " placeholder="Enter ID" id="u_name" aria-label="name" style="margin-left: 5rem;" >
+                      </div>
+                      <br>
+
+                        <div class="row ml-1 mb-2">
+                            <span class=" mr-4 mt-1">Select subject</span>
+                            <div class="form-group ml-4">
+                                    <select class="form-control" id="sub" name="sellist1">
+                                      <option>ds</option>
+                                      <option>ip</option>
+                                      <option>gm</option>
+                                      <option>toc</option>
+                                      <option>cns</option>
+                                      <option>cnsl</option>
+                                      <option>gml</option>
+                                      <option>ipl</option>
+                                    </select>
+                     
+                            </div>
+                        </div>
+                        
+                      <div class="row ml-1">
+                        <span class=" mr-4 mt-1">No. of periods</span>
+                        <input type="text" class="form-control w-50 mt-0 ml-4" placeholder="Enter periods" id="period" aria-label="name" >
+                      </div>
+
+                      <br>
+                    <div style="display:flex;align-items: flex-end;justify-content: flex-end;">
+                        <button type="button" class=" btn btn-success ml-2 rounded-0" onClick="add_stu()">Add Attendence</button>
+                        <button type="button" class="btn btn-warning ml-2 rounded-0" onClick="reset()">Reset</button>
+                    </div>  
+                </div>
+              </div>
+        </div>
+</body>
+</html>
